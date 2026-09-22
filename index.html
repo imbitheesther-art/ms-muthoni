@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>For Ms. Muthoni 🎊</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --text-main: #ffffff;
+            --pink: #ff8fac;
+            --gold: #d4af37;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000000;
+            /* Pure Black Always */
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Navigation (Hamburger) */
+        .nav-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--pink);
+            color: var(--pink);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 250px;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            padding: 80px 30px;
+            gap: 20px;
+            transition: left 0.4s ease;
+            border-right: 1px solid var(--pink);
+        }
+
+        .nav-menu.active {
+            left: 0;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .nav-menu a:hover {
+            color: var(--pink);
+        }
+
+        /* Floating Contact Buttons */
+        .contact-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .float-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 0 20px rgba(255, 143, 172, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        .btn-call {
+            background: #007bff;
+        }
+
+        /* Blue for Call */
+        .btn-wa {
+            background: #25D366;
+        }
+
+        /* Green for WhatsApp */
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 143, 172, 0.4);
+            }
+
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(255, 143, 172, 0);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 143, 172, 0);
+            }
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 20px 60px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1,
+        h2 {
+            font-family: 'Dancing Script', cursive;
+            background: linear-gradient(to right, var(--pink), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+        }
+
+        p {
+            max-width: 600px;
+            color: #f0f0f0;
+            margin-bottom: 20px;
+        }
+
+        /* Hero / Landing Section */
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        /* Boombox Music Player */
+        .music-player {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1a1a1a, #000);
+            border: 4px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .music-player.playing {
+            animation: spin 4s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .play-icon {
+            font-size: 3rem;
+            color: var(--pink);
+            text-shadow: 0 0 10px var(--pink);
+        }
+
+        /* Video Gallery */
+        .video-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .tiktok-embed {
+            max-width: 280px !important;
+            min-width: 200px !important;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 15px rgba(255, 143, 172, 0.2);
+        }
+
+        /* Photo Gallery */
+        .gallery-grid {
+            columns: 3;
+            column-gap: 15px;
+            width: 100%;
+            max-width: 900px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                columns: 2;
+            }
+        }
+
+        .gallery-img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+            display: block;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Teddy Bear Image */
+        .teddy-img {
+            width: 300px;
+            max-width: 80%;
+            border-radius: 20px;
+            border: 3px solid var(--gold);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            margin-top: 20px;
+            animation: teddy-float 4s ease-in-out infinite;
+        }
+
+        @keyframes teddy-float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* The Question Buttons */
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-yes {
+            background: linear-gradient(135deg, #ff4d4d, #ff8fac);
+            color: white;
+            box-shadow: 0 5px 20px rgba(255, 77, 77, 0.4);
+        }
+
+        .btn-yes:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-no {
+            background: transparent;
+            color: #888;
+            border: 1px solid #444;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Hamburger Nav -->
+    <button class="nav-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+    <div class="nav-menu" id="navMenu">
+        <a href="#hero" onclick="toggleMenu()">Home</a>
+        <a href="#personality" onclick="toggleMenu()">Her</a>
+        <a href="#videos" onclick="toggleMenu()">Videos</a>
+        <a href="#gallery" onclick="toggleMenu()">Gallery</a>
+        <a href="#teddy" onclick="toggleMenu()">Teddy</a>
+        <a href="#ask" onclick="toggleMenu()">The Question</a>
+    </div>
+
+    <!-- Floating Contact Buttons -->
+    <div class="contact-float">
+        <a href="tel:0740045355" class="float-btn btn-call" title="Call Me"><i class="fas fa-phone"></i></a>
+        <a href="https://wa.me/254740045355" target="_blank" class="float-btn btn-wa" title="WhatsApp Me"><i
+                class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <!-- 1. Hero / Landing -->
+    <section id="hero" style="min-height: 100vh;">
+        <div class="hero-content">
+            <div class="music-player" id="musicPlayer" onclick="toggleMusic()">
+                <i class="fas fa-play play-icon" id="playIcon"></i>
+                <audio id="bgMusic" loop>
+                    <source src="music/ahatamatarmusic.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+            <h1>For Ms. Muthoni 🎊</h1>
+            <p>Spreading love like confetti. Welcome to my little world for you.</p>
+            <a href="#personality" style="color: var(--gold); font-size: 2rem; animation: bounce 2s infinite;"><i
+                    class="fas fa-chevron-down"></i></a>
+        </div>
+    </section>
+
+    <!-- 2. Personality -->
+    <section id="personality">
+        <div>
+            <h2>You Are My Favorite</h2>
+            <p>
+                Muthoni, your bio says you're <strong style="color: var(--pink);">"spreading love like confetti
+                    🎊"</strong>, and I want you to know that your love and energy have reached me.
+                <br><br>
+                I love that you're <strong style="color: var(--gold);">"living in your own little world 🤭"</strong>.
+                There is something so magical and beautiful about a girl who embraces her own world. You are funny,
+                smart, and absolutely stunning inside and out.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. Videos -->
+    <section id="videos">
+        <h2>My Favorite Videos of You</h2>
+        <p>I saved these because they make me smile every time I watch them.</p>
+        <div class="video-grid">
+            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@reen_muthoni/video/7687634874248727829"
+                data-video-id="7687634874248727829" style="max-width: 280px; min-width: 200px;">
+                <section><a target="_blank" href="https://www.tiktok.com/@reen_muthoni/video/7687634874248727829"></a>
+                </section>
+            </blockquote>
+            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@reen_muthoni/video/7686119676392508692"
+                data-video-id="7686119676392508692" style="max-width: 280px; min-width: 200px;">
+                <section><a target="_blank" href="https://www.tiktok.com/@reen_muthoni/video/7686119676392508692"></a>
+                </section>
+            </blockquote>
+            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@reen_muthoni/video/7684984966719032596"
+                data-video-id="7684984966719032596" style="max-width: 280px; min-width: 200px;">
+                <section><a target="_blank" href="https://www.tiktok.com/@reen_muthoni/video/7684984966719032596"></a>
+                </section>
+            </blockquote>
+            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@reen_muthoni/video/7681128799148248340"
+                data-video-id="7681128799148248340" style="max-width: 280px; min-width: 200px;">
+                <section><a target="_blank" href="https://www.tiktok.com/@reen_muthoni/video/7681128799148248340"></a>
+                </section>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- 4. Gallery -->
+    <section id="gallery">
+        <h2>My Gallery of You</h2>
+        <p>Because every angle of you is beautiful.</p>
+        <div class="gallery-grid">
+            <img src="music/r.png" class="gallery-img" alt="Muthoni 1">
+            <img src="music/r2.png" class="gallery-img" alt="Muthoni 2">
+            <img src="music/ree.png" class="gallery-img" alt="Muthoni 3">
+        </div>
+    </section>
+
+    <!-- 5. Teddy Bear -->
+    <section id="teddy">
+        <div>
+            <h2>A Teddy For You 🧸</h2>
+            <p>If you say yes, I would love to buy you this teddy bear so you always have something to hug.</p>
+            <img src="https://i0.wp.com/teddybearhaven.co.ke/wp-content/uploads/2026/01/big-teddy-bear-brown-cream.jpeg?zoom=2&resize=300%2C300&ssl=1"
+                alt="Teddy Bear" class="teddy-img">
+        </div>
+    </section>
+
+    <!-- 6. The Question -->
+    <section id="ask">
+        <div>
+            <h2>Will You Be Mine?</h2>
+            <p>Muthoni, you make me happier than anyone else. I want to be the guy who gets to listen to your stories
+                and make you smile every day.</p>
+            <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+                <!-- "Yes" Button opens WhatsApp with a pre-filled message to 254740045355 -->
+                <a href="https://wa.me/254740045355?text=Yes!%20I%20would%20love%20to%20be%20yours.%20💖"
+                    target="_blank" class="btn btn-yes">Yes! 💖</a>
+                <button class="btn btn-no" onmouseover="dodge(this)" onclick="dodge(this)">No</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Hamburger Menu
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+
+        // Music Player
+        let isPlaying = false;
+        const audio = document.getElementById('bgMusic');
+        const player = document.getElementById('musicPlayer');
+        const playIcon = document.getElementById('playIcon');
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                player.classList.remove('playing');
+                playIcon.className = 'fas fa-play play-icon';
+            } else {
+                audio.play().catch(e => console.log("Auto-play blocked"));
+                player.classList.add('playing');
+                playIcon.className = 'fas fa-pause play-icon';
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // "No" Button Dodge
+        function dodge(button) {
+            const maxX = window.innerWidth - button.offsetWidth - 40;
+            const maxY = window.innerHeight - button.offsetHeight - 40;
+            const x = Math.random() * (maxX - 20) + 20;
+            const y = Math.random() * (maxY - 20) + 20;
+            button.style.position = 'fixed';
+            button.style.left = x + 'px';
+            button.style.top = y + 'px';
+        }
+    </script>
+
+    <!-- TikTok Embed Script -->
+    <script async src="https://www.tiktok.com/embed.js"></script>
+</body>
+
+</html>
