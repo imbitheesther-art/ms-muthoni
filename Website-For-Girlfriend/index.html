@@ -204,6 +204,23 @@
             animation: spin 4s linear infinite;
         }
 
+        .music-player-img.playing {
+            box-shadow: 0 0 20px rgba(255, 143, 172, 0.8);
+            border: 2px solid var(--pink);
+        }
+
+        .music-player-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .music-player-img:hover {
+            transform: scale(1.05);
+        }
+
         @keyframes spin {
             100% {
                 transform: rotate(360deg);
@@ -234,6 +251,29 @@
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 0 15px rgba(255, 143, 172, 0.2);
+        }
+
+        /* Mobile: make videos fullscreen width */
+        @media screen and (max-width: 768px) {
+            .video-grid {
+                flex-direction: column;
+                align-items: center;
+                max-width: 100%;
+                gap: 20px;
+            }
+
+            .tiktok-embed {
+                max-width: 100% !important;
+                min-width: 100% !important;
+                width: 100% !important;
+                border-radius: 0;
+            }
+
+            .tiktok-embed section,
+            .tiktok-embed iframe {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
         }
 
         /* Photo Gallery */
@@ -343,7 +383,7 @@
     <section id="hero" style="min-height: 100vh;">
         <div class="hero-content">
             <div class="music-player" id="musicPlayer" onclick="toggleMusic()">
-                <i class="fas fa-play play-icon" id="playIcon"></i>
+                <img src="music/r.png" alt="Muthoni" class="music-player-img" id="playIcon">
                 <audio id="bgMusic" loop>
                     <source src="music/ahatamatarmusic.mp3" type="audio/mpeg">
                 </audio>
@@ -376,23 +416,8 @@
         <p>I saved these because they make me smile every time I watch them.</p>
         <div class="video-grid">
             <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@reen_muthoni/video/7687634874248727829"
-                data-video-id="7687634874248727829" style="max-width: 280px; min-width: 200px;">
+                data-video-id="7687634874248727829" data-autoplay="true">
                 <section><a target="_blank" href="https://www.tiktok.com/@reen_muthoni/video/7687634874248727829"></a>
-                </section>
-            </blockquote>
-            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@reen_muthoni/video/7686119676392508692"
-                data-video-id="7686119676392508692" style="max-width: 280px; min-width: 200px;">
-                <section><a target="_blank" href="https://www.tiktok.com/@reen_muthoni/video/7686119676392508692"></a>
-                </section>
-            </blockquote>
-            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@reen_muthoni/video/7684984966719032596"
-                data-video-id="7684984966719032596" style="max-width: 280px; min-width: 200px;">
-                <section><a target="_blank" href="https://www.tiktok.com/@reen_muthoni/video/7684984966719032596"></a>
-                </section>
-            </blockquote>
-            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@reen_muthoni/video/7681128799148248340"
-                data-video-id="7681128799148248340" style="max-width: 280px; min-width: 200px;">
-                <section><a target="_blank" href="https://www.tiktok.com/@reen_muthoni/video/7681128799148248340"></a>
                 </section>
             </blockquote>
         </div>
@@ -450,11 +475,11 @@
             if (isPlaying) {
                 audio.pause();
                 player.classList.remove('playing');
-                playIcon.className = 'fas fa-play play-icon';
+                playIcon.classList.remove('playing');
             } else {
                 audio.play().catch(e => console.log("Auto-play blocked"));
                 player.classList.add('playing');
-                playIcon.className = 'fas fa-pause play-icon';
+                playIcon.classList.add('playing');
             }
             isPlaying = !isPlaying;
         }
