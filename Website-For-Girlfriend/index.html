@@ -233,49 +233,6 @@
             text-shadow: 0 0 10px var(--pink);
         }
 
-        /* Video Gallery */
-        .video-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
-            width: 100%;
-            max-width: 1000px;
-        }
-
-        .tiktok-embed {
-            max-width: 280px !important;
-            min-width: 200px !important;
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 15px rgba(255, 143, 172, 0.2);
-        }
-
-        /* Mobile: make videos fullscreen width */
-        @media screen and (max-width: 768px) {
-            .video-grid {
-                flex-direction: column;
-                align-items: center;
-                max-width: 100%;
-                gap: 20px;
-            }
-
-            .tiktok-embed {
-                max-width: 100% !important;
-                min-width: 100% !important;
-                width: 100% !important;
-                border-radius: 0;
-            }
-
-            .tiktok-embed section,
-            .tiktok-embed iframe {
-                width: 100% !important;
-                max-width: 100% !important;
-            }
-        }
-
         /* Photo Gallery */
         .gallery-grid {
             columns: 3;
@@ -366,7 +323,6 @@
     <div class="nav-menu" id="navMenu">
         <a href="#hero" onclick="toggleMenu()">Home</a>
         <a href="#personality" onclick="toggleMenu()">Her</a>
-        <a href="#videos" onclick="toggleMenu()">Videos</a>
         <a href="#gallery" onclick="toggleMenu()">Gallery</a>
         <a href="#teddy" onclick="toggleMenu()">Teddy</a>
         <a href="#ask" onclick="toggleMenu()">The Question</a>
@@ -410,20 +366,7 @@
         </div>
     </section>
 
-    <!-- 3. Videos -->
-    <section id="videos">
-        <h2>My Favorite Videos of You</h2>
-        <p>I saved these because they make me smile every time I watch them.</p>
-        <div class="video-grid">
-            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@reen_muthoni/video/7687634874248727829"
-                data-video-id="7687634874248727829" data-autoplay="true">
-                <section><a target="_blank" href="https://www.tiktok.com/@reen_muthoni/video/7687634874248727829"></a>
-                </section>
-            </blockquote>
-        </div>
-    </section>
-
-    <!-- 4. Gallery -->
+    <!-- 3. Gallery -->
     <section id="gallery">
         <h2>My Gallery of You</h2>
         <p>Because every angle of you is beautiful.</p>
@@ -496,8 +439,6 @@
         }
     </script>
 
-    <!-- TikTok Embed Script -->
-    <script async src="https://www.tiktok.com/embed.js"></script>
 </body>
 
 </html>
